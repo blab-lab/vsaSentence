@@ -4,7 +4,9 @@ Read the paper
 
 Run the experiment
 ------
-You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>). To ensure compatibility, use a version from ~August 2024.
+The vsaSentence experiment was run in MATLAB. The main function is `run_vsaSentence_expt.m`.
+
+You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>). To ensure compatibility, use a version from ~2021–2023.
 
 Access the data
 ------
