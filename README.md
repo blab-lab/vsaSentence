@@ -9,21 +9,33 @@ Users will also need the code in the free-speech repository (https://github.com/
 Analyze the data
 ------
 Data analysis was performed in MATLAB 2022a.
-The main function is stats_vsaSentencePaperFigs.m, which is organized by paper figure. 
 
+The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding paper figure. 
 
-You will need to update the filepath ... to run properly.
+You will need to update the path on line XX in order to load the following data:
 
-Users will also need the code in the free-speech repository (https://github.com/carrien/free-speech). To ensure compatibility, use a version from ~August 2024.
+You will also need code in the free-speech repository (https://github.com/carrien/free-speech). To ensure compatibility, use a version from ~August 2024.
 
 Generate the figures
 ------
 Figures were generated using MATLAB 2022a.
 
-The main function is plot_vsaSentencePaperFigs.m.
+The main function is `plot_vsaSentencePaperFigs.m`.
 
 You will need to update the path on line XX in order to load the following data:
-sentenceVow_41.mat
-transferVow_41.mat
-segmentDuration_sentence_41.mat
-speakerData.mat
+
+`expt.mat`
+
+`dataVals_sentences.mat`
+
+`avs_vsa_41.mat`
+
+`aavs.mat`
+
+`sentenceVow_41.mat`
+
+`transferVow_41.mat`
+
+`segmentDuration_sentence_41.mat`
+
+`speakerData.mat`
