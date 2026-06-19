@@ -6,6 +6,10 @@ Run the experiment
 ------
 You will also need code in the free-speech repository (https://github.com/carrien/free-speech). To ensure compatibility, use a version from ~August 2024.
 
+Access the data
+------
+Our data have been deposited at: (https://osf.io/3fhbg).
+
 Analyze the data
 ------
 Data analysis was performed in MATLAB 2022a. The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding figure in the paper. 
