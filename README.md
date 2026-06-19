@@ -29,3 +29,5 @@ Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentenc
 - `segmentDuration_sentence_41.mat`
 - `speakerData.mat`
 - `listenerData.mat`
+
+This code relies on `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
