@@ -9,8 +9,8 @@ Users will also need the code in the free-speech repository (https://github.com/
 Analyze the data
 ------
 Data analysis was performed in MATLAB 2022a.
+The main function is stats_vsaSentencePaperFigs.m, which is organized by paper figure. 
 
-Give a general overview of what the different functions are.
 
 You will need to update the filepath ... to run properly.
 
@@ -19,3 +19,10 @@ Users will also need the code in the free-speech repository (https://github.com/
 Generate the figures
 ------
 Figures were generated using MATLAB 2022a.
+
+The main function is plot_vsaSentencePaperFigs.m.
+
+You will need to update the path on line XX in order to load the following data:
+sentenceVow_41.mat
+transferVow_41.mat
+segmentDuration_sentence_41.mat
