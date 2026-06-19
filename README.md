@@ -23,9 +23,7 @@ Figures were generated using MATLAB 2022a.
 The main function is plot_vsaSentencePaperFigs.m.
 
 You will need to update the path on line XX in order to load the following data:
-
 sentenceVow_41.mat
-
 transferVow_41.mat
-
 segmentDuration_sentence_41.mat
+speakerData.mat
