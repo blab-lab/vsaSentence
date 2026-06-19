@@ -4,7 +4,7 @@ Read the paper
 
 Run the experiment
 ------
-Users will also need the code in the free-speech repository (https://github.com/carrien/free-speech). To ensure compatibility, use a version from ~August 2024.
+You will also need code in the free-speech repository (https://github.com/carrien/free-speech). To ensure compatibility, use a version from ~August 2024.
 
 Analyze the data
 ------
