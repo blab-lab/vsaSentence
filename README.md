@@ -32,4 +32,8 @@ Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentenc
 - `speakerData.mat`
 - `listenerData.mat`
 
+- `get_dataPaths_vsaSentence.m`
+- `run_vsaSentence_audapter.m`
+- `gen_data2plot_suppData.m`
+
 This code relies on `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
