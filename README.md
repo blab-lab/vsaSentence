@@ -6,7 +6,7 @@ Run the experiment
 ------
 The vsaSentence experiment was run in MATLAB. The main function is `run_vsaSentence_expt.m`.
 
-You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>), the blab-lab fork of Audapter (https://github.com/blab-lab/audapter_mex), and Audapter functions (https://github.com/blab-lab/audapter_matlab). Note that we collected data between 2021 and 2023.
+You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>), the blab-lab fork of Audapter (https://github.com/blab-lab/audapter_mex), and Audapter functions (https://github.com/blab-lab/audapter_matlab). To ensure software compatibility, use a version released between 2021 and 2023, as the data were collected during that period.
 
 Access the data
 ------
