@@ -1,6 +1,6 @@
 Read the paper
 ------
-"Increased vowel contrast and intelligibility in connected speech induced by sensorimotor adaptation" was authored by Sara D. Beach, Sophie A. Johnson, Benjamin Parrell, and Caroline A. Niziolek. A preprint is available at <https://doi.org/10.1101/2024.08.04.606537>.
+"Increased vowel contrast and intelligibility in connected speech induced by sensorimotor adaptation" was authored by Sara D. Beach, Sophie A. Johnson, Benjamin Parrell, and Caroline A. Niziolek. A preprint is available on bioRxiv at <https://doi.org/10.1101/2024.08.04.606537>.
 
 Run the experiment
 ------
