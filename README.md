@@ -24,6 +24,7 @@ Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentenc
 
 - `get_dataPaths_vsaSentence.m`
 - `run_vsaSentence_audapter.m`
+- `gen_data2plot.m`
 - `gen_data2plot_suppData.m`
 - `plot_pairedData_1axVowel.m`
 
