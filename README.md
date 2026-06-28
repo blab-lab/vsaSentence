@@ -20,7 +20,7 @@ You will also need code in the free-speech repository (<https://github.com/carri
 
 Generate the figures
 ------
-Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the path on line XX.
+Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the paths on lines 43 and 45.
 
 - `get_dataPaths_vsaSentence.m`
 - `run_vsaSentence_audapter.m`
