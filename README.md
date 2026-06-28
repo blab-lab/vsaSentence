@@ -27,5 +27,6 @@ Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentenc
 - `gen_data2plot.m`
 - `gen_data2plot_suppData.m`
 - `plot_pairedData_1axVowel.m`
+- `plot_sessions_layout.m`
 
 This code relies on `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
