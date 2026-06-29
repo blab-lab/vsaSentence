@@ -22,13 +22,7 @@ Generate the figures
 ------
 Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the paths on lines 43 and 45.
 
-- `get_dataPaths_vsaSentence.m`
-- `gen_data2plot.m`
-- `gen_data2plot_suppData.m`
-- `plot_pairedData_1axVowel.m`
-- `plot_sessions_layout.m`
-
-- `run_vsaSentence_audapter.m`
+- `run_vsaSentence_audapter.m` from ...
 
 - `gen_concatenated_formants.m` from current-studies\vowel-space
 
