@@ -14,7 +14,7 @@ Our data have been deposited at <https://osf.io/3fhbg>.
 
 Analyze the data
 ------
-Data analysis was performed in MATLAB 2022a. The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding figure in the paper. Make sure to update the path on line XX.
+Data analysis was performed in MATLAB 2022a. The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding figure in the paper. Make sure to update the path on line 15.
 
 You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>). To ensure compatibility, use a version from ~August 2024.
 
@@ -23,10 +23,13 @@ Generate the figures
 Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the paths on lines 43 and 45.
 
 - `get_dataPaths_vsaSentence.m`
-- `run_vsaSentence_audapter.m`
 - `gen_data2plot.m`
 - `gen_data2plot_suppData.m`
 - `plot_pairedData_1axVowel.m`
 - `plot_sessions_layout.m`
+
+- `run_vsaSentence_audapter.m`
+
+- `gen_concatenated_formants.m` from current-studies\vowel-space
 
 This code relies on `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
