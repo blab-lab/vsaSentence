@@ -32,4 +32,4 @@ Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentenc
 
 - `gen_concatenated_formants.m` from current-studies\vowel-space
 
-This code relies on `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
+This code uses `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
