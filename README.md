@@ -12,6 +12,11 @@ Access the data
 ------
 Our data have been deposited at <https://osf.io/3fhbg>.
 
+
+Process the listeners' data
+------
+Raw perceptual data were downloaded from Prolific. Calculate listeners' accuracy in transcribing sentences and identifying transfer words using `gen_sentenceAcc.m` and `gen_transferAcc.m`, and then add it to the existing speakerData using `add_speakerData.m`.
+
 Analyze the data
 ------
 Data analysis was performed in MATLAB 2022a. The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding figure in the paper. Make sure to update the path on line 15.
