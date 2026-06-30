@@ -22,8 +22,6 @@ Generate the figures
 ------
 Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the paths on lines 43 and 45.
 
-- `run_vsaSentence_audapter.m` from ...
+You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>).
 
-- `gen_concatenated_formants.m` from current-studies\vowel-space
-
-This code uses `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
+This code uses `varycolor.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/21050-varycolor>, and `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder>.
