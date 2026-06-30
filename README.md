@@ -12,10 +12,13 @@ Access the data
 ------
 Our data have been deposited at <https://osf.io/3fhbg>.
 
+Process the speakers' data
+------
+Generate long tables (suitable for RM-ANOVA) of the global vowel-space measures using `gen_AVS_VSA.m` (path on line 4) and `gen_AAVS.m` (path on line 6).
 
 Process the listeners' data
 ------
-Raw perceptual data were downloaded from Prolific. Calculate listeners' accuracy in transcribing sentences and identifying transfer words using `gen_sentenceAcc.m` (make sure to update the path on line 30) and `gen_transferAcc.m` (path on line 22), and then add it to the existing speakerData using `add_speakerData.m` (path on line 7).
+Raw perceptual data were downloaded from Prolific. Calculate listeners' accuracy in transcribing sentences and identifying transfer words using `gen_sentenceAcc.m` (path on line 30) and `gen_transferAcc.m` (path on line 22), and then add it to the existing speakerData using `add_speakerData.m` (path on line 7).
 
 Analyze the data
 ------
