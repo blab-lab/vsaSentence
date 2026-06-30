@@ -24,4 +24,4 @@ Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentenc
 
 You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>).
 
-This code uses `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
+This code uses `varycolor.m`, available at <[https://www.mathworks.com/matlabcentral/fileexchange/21050-varycolor](https://www.mathworks.com/matlabcentral/fileexchange/21050-varycolor/files/varycolor.m)>, and `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder-higher-contrast-text-using-a-1-pixel-thick-border/files/textborder.m>.
