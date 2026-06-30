@@ -15,7 +15,7 @@ Our data have been deposited at <https://osf.io/3fhbg>.
 
 Process the listeners' data
 ------
-Raw perceptual data were downloaded from Prolific. Calculate listeners' accuracy in transcribing sentences and identifying transfer words using `gen_sentenceAcc.m` and `gen_transferAcc.m`, and then add it to the existing speakerData using `add_speakerData.m`.
+Raw perceptual data were downloaded from Prolific. Calculate listeners' accuracy in transcribing sentences and identifying transfer words using `gen_sentenceAcc.m` (make sure to update the path on line 30) and `gen_transferAcc.m` (make sure to update the path on line 22), and then add it to the existing speakerData using `add_speakerData.m`.
 
 Analyze the data
 ------
