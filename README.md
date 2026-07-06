@@ -10,10 +10,18 @@ You will also need code in the free-speech repository (<https://github.com/carri
 
 Access the data
 ------
-Our data have been deposited at <https://osf.io/3fhbg>.
+Our data have been deposited at <https://osf.io/3fhbg>. To reproduce our workflow, follow these steps:
 
 Process the speakers' data
 ------
+N=41 speakers contributed data to vsaSentence. Point to the location of the data using `get_dataPaths_vsaSentence.m`. Make sure to update the path on line XX.
+
+Begin making a wide table (suitable for correlations) with one row per speaker using `get_speakerData.m`.
+
+The main vowel-data assembling step takes up to two hours to run:
+`sentenceVow = gen_vowelSegment_dataTable(dataPaths, 0);`
+`transferVow = gen_vowelSegment_dataTable(dataPaths, 1);`
+
 Generate long tables (suitable for RM-ANOVA) of the global vowel-space measures using `gen_AVS_VSA.m` (path on line 4) and `gen_AAVS.m` (path on line 6).
 
 Generate the data for the clear-speech metrics (duration, intensity, f0, etc.) using `gen_supplementaryData.m` (path on line 11).
