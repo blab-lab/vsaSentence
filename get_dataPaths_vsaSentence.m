@@ -1,7 +1,6 @@
 function [dataPaths] = get_dataPaths_vsaSentence(session)
-%GET_DATAPATHS_VSASENTENCE2  Get datapaths for the vsaSentence2 experiment.
+%GET_DATAPATHS_VSASENTENCE  Get datapaths for the vsaSentence experiment.
 %SESSION can be 'adapt' or 'null' (or leave blank for the parent directory)
-% Sara Beach 1-2024
 
 if nargin < 1, session = []; end
 
