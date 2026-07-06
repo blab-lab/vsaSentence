@@ -14,7 +14,7 @@ Our data have been deposited at <https://osf.io/3fhbg>. To reproduce our workflo
 
 Process the speakers' data
 ------
-N=41 speakers contributed data to vsaSentence. Point to the location of the data using `get_dataPaths_vsaSentence.m`. Make sure to update the path on line XX.
+N=41 speakers contributed data to vsaSentence. Point to the location of the data using `get_dataPaths_vsaSentence.m`. Make sure to update the path on line 9.
 
 Begin making a wide table (suitable for correlations) with one row per speaker using `get_speakerData.m`.
 
