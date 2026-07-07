@@ -37,8 +37,7 @@ Now you have generated and saved the following results files:
 `supplementaryData_transfer_41.mat`
 `segmentDuration_sentence_41.mat`
 `segmentDuration_transfer_41.mat`.
-
-Add them to the existing speakerData using `add_speakerData.m`.
+Add them to the existing speakerData using `add_speakerData.m` (path on line 7).
 
 Process the listeners' data
 ------
