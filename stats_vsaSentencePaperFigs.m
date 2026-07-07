@@ -1,9 +1,9 @@
 function stats_vsaSentencePaperFigs(figs2stat)
-%STATS_VSASENTENCEPAPERFIGS Do the stats for each figure in the vsaSentence paper. 
+%STATS_VSASENTENCEPAPERFIGS Statistics for each figure in the vsaSentence paper. 
 
 % 0 = (Not a figure) Participant demographics
 % 1 = Fig 1: Experiment
-% 2 = Fig 2: AVS, both sessions + paired data + two sessions 
+% 2 = Fig 2: AVS (and VSA and AAVS)
 % 3 = Fig 3: Vowel-specific distances
 % 4 = Fig 4: Clear speech
 % 5 = Fig 5: Intelligibility
@@ -12,9 +12,7 @@ function stats_vsaSentencePaperFigs(figs2stat)
 
 if nargin < 1 || isempty(figs2stat), figs2stat = 1; end
 
-dataPath = get_exptLoadPath('vsaSentence2');
-addpath(genpath(dataPath));
-addpath 'C:\Users\Public\Documents\software\current-studies\vsaSentence2';
+dataPath = get_exptLoadPath('vsaSentence');
 
 %% Fig 0: Participant demographics
 
