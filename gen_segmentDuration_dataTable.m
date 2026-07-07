@@ -1,7 +1,6 @@
 function [T] = gen_segmentDuration_dataTable(dataPaths, isTransfer)
 % Go through trials in adapt and null sessions, grab all segment durations, 
 % and make a dataTable. Does _all_ phases of the vsaSentence experiment.
-% SDB 1-2025
 
 if nargin < 1 || isempty(dataPaths), dataPaths = get_dataPaths_vsaSentence; end
 if nargin < 2 || isempty(isTransfer), isTransfer = 1; end
@@ -83,7 +82,7 @@ for s=1:nSubs %for each subject
                 fact.phase = phase;
                 fact.vow = vow;
 
-                sp = dataPath(end-4:end); % NOTE: This does not accommodate pp IDs that are more than 3 digits. Consider using [~, sp] = fileparts(dataPath)
+                [~, sp] = fileparts(dataPath);
                 fact.speaker = sp;
                 if speakerData(strcmp(speakerData.speaker, sp),:).adaptFirst == 1
                     fact.adaptFirst = 1;
