@@ -16,15 +16,29 @@ Process the speakers' data
 ------
 N=41 speakers contributed data to vsaSentence. Point to the location of the data using `get_dataPaths_vsaSentence.m`. Make sure to update the path on line 9.
 
+You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>).
+
 Begin making a wide table (suitable for correlations) with one row per speaker using `get_speakerData.m`.
 
-The main vowel-data assembling step takes up to two hours to run:
+The main vowel-data assembling step is:
 `sentenceVow = gen_vowelSegment_dataTable(dataPaths, 0);`
 `transferVow = gen_vowelSegment_dataTable(dataPaths, 1);`
 
-Generate long tables (suitable for RM-ANOVA) of the global vowel-space measures using `gen_AVS_VSA.m` (path on line 4) and `gen_AAVS.m` (path on line 6).
+Generate long tables (suitable for RM-ANOVA) of the global vowel-space measures using `gen_AVS_VSA.m` (path on line 4) and `gen_AAVS.m` (path on line 6). For reference, `gen_AVS_VSA` calls `get_AVS_VSA`, which in turn calls `calc_AVS` and `calc_VSA`; `gen_AAVS` calls `get_AAVS`, which in turn calls `calc_AAVS`.
 
-Generate the data for the clear-speech metrics (duration, intensity, f0, etc.) using `gen_supplementaryData.m` (path on line 11).
+Generate the data for the clear-speech metrics (duration, peak intensity, max f0, and f0 range) using `gen_supplementaryData.m` (path on line 11).
+
+Now you have generated and saved the following results files:
+`sentenceVow_41.mat`
+`transferVow_41.mat`
+`avs_vsa_41.mat`
+`aavs_41.mat`
+`supplementaryData_sentence_41.mat`
+`supplementaryData_transfer_41.mat`
+`segmentDuration_sentence_41.mat`
+`segmentDuration_transfer_41.mat`.
+
+Add them to the existing speakerData using `add_speakerData.m`.
 
 Process the listeners' data
 ------
