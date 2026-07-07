@@ -28,6 +28,10 @@ Generate long tables (suitable for RM-ANOVA) of the global vowel-space measures 
 
 Generate the data for the clear-speech metrics (duration, peak intensity, max f0, and f0 range) using `gen_supplementaryData.m` (path on line 11).
 
+Generate the data for segment (vowel and consonant) duration:
+`gen_segmentDuration_dataTable(dataPaths, 0);`
+`gen_segmentDuration_dataTable(dataPaths, 1);`
+
 Now you have generated and saved the following results files:
 `sentenceVow_41.mat`
 `transferVow_41.mat`
