@@ -18,7 +18,7 @@ N=41 speakers contributed data to vsaSentence. Point to the location of the data
 
 You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>). To ensure compatibility, use a version from ~August 2024.
 
-Begin making a wide table (suitable for correlations) with one row per speaker using `get_speakerData.m`.
+Begin making a wide table (suitable for correlations) with one row per speaker using `gen_speakerData.m`.
 
 The main vowel-data assembling step is:
 `sentenceVow = gen_vowelSegment_dataTable(dataPaths, 0);`
