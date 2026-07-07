@@ -10,15 +10,15 @@ You will also need code in the free-speech repository (<https://github.com/carri
 
 Access the data
 ------
-Our data have been deposited at <https://osf.io/3fhbg>. To reproduce our workflow, follow these steps:
+Our data have been deposited at <https://osf.io/3fhbg>. To reproduce our workflow (we used MATLAB 2022a), follow these steps:
 
 Process the speakers' data
 ------
 N=41 speakers contributed data to vsaSentence. Point to the location of the data using `get_dataPaths_vsaSentence.m`. Make sure to update the path on line 9.
 
-You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>).
+You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>). To ensure compatibility, use a version from ~August 2024.
 
-Begin making a wide table (suitable for correlations) with one row per speaker using `get_speakerData.m`.
+Begin making a wide table (suitable for correlations) with one row per speaker using `gen_speakerData.m` (path on line 7).
 
 The main vowel-data assembling step is:
 `sentenceVow = gen_vowelSegment_dataTable(dataPaths, 0);`
@@ -47,14 +47,10 @@ Raw perceptual data were downloaded from Prolific. Calculate listeners' accuracy
 
 Analyze the data
 ------
-Data analysis was performed in MATLAB 2022a. The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding figure in the paper. Make sure to update the path on line 15.
-
-You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>). To ensure compatibility, use a version from ~August 2024.
+The main function is `stats_vsaSentencePaperFigs.m`, which is organized by the corresponding figure in the paper. Make sure to update the path on line 15.
 
 Generate the figures
 ------
-Figures were generated using MATLAB 2022a. The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the paths on lines 43 and 45.
-
-You will also need code in the free-speech repository (<https://github.com/carrien/free-speech>).
+The main function is `plot_vsaSentencePaperFigs.m`. Make sure to update the paths on lines 43 and 45.
 
 This code uses `varycolor.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/21050-varycolor>, and `textborder.m`, available at <https://www.mathworks.com/matlabcentral/fileexchange/27383-textborder>.
