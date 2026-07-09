@@ -58,7 +58,7 @@ if bStat
 end
 
 
-%% Fig 2: VS measures
+%% Fig 2: Vowel-space measures
 
 [bStat,~] = ismember(2,figs2stat);
 if bStat
@@ -68,6 +68,7 @@ if bStat
     %%%%%%%%%%
     
     % ----- AVS Norm Within Session -----
+    fprintf('\n*** Sentence, AVS Norm Within Session ***\n');
     
     load(fullfile(dataPath, 'avs_vsa_41.mat'), 'AVS_VSA');
     sen = AVS_VSA(strcmp(AVS_VSA.phase, 'hold6') | strcmp(AVS_VSA.phase, 'washout') | strcmp(AVS_VSA.phase, 'retention'),:); % select phases of interest
@@ -94,13 +95,8 @@ if bStat
     
     groupsummary(sen, {'cond'}, {'mean','std'}, {'avsNormWithinSession'})
 
-    % without the n=5 aware/strategic participants
-    toExcl = [7 15 17 34 41]; % 'sp301','sp343','sp347','sp443','sp601'
-    for i = 1:length(toExcl)
-        sen(toExcl(i),:) = [];
-    end
-
     % ----- AVS Norm First Session -----
+    fprintf('\n*** Sentence, AVS Norm First Session ***\n');
     
     [p,t,stats] = anovan(sen.avsNormFirstSession, {sen.cond sen.phase sen.adaptFirst sen.subj}, ...
                         'model', 'full', 'random', 4, 'nested', [0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 1 0], 'varnames', {'cond','phase','adaptFirst','subj'});
@@ -127,16 +123,19 @@ if bStat
     groupsummary(sen_retention, {'cond'}, {'mean','std'}, {'avsNormFirstSession'})
     
     % ----- VSA Norm Within Session -----
+    fprintf('\n*** Sentence, VSA Norm Within Session ***\n');
     
     [p,t,stats] = anovan(sen.vsa4NormWithinSession, {sen.cond sen.phase sen.adaptFirst sen.subj}, ...
                         'model', 'full', 'random', 4, 'nested', [0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 1 0], 'varnames', {'cond','phase','adaptFirst','subj'});
     
     % ----- VSA Norm First Session -----
+    fprintf('\n*** Sentence, VSA Norm First Session ***\n');
     
     [p,t,stats] = anovan(sen.vsa4NormFirstSession, {sen.cond sen.phase sen.adaptFirst sen.subj}, ...
                         'model', 'full', 'random', 4, 'nested', [0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 1 0], 'varnames', {'cond','phase','adaptFirst','subj'});
 
     % ----- AAVS Norm Within Session -----
+    fprintf('\n*** Sentence, AAVS Norm Within Session ***\n');
     
     load(fullfile(dataPath, 'aavs_41.mat'), 'AAVS');
     sen = AAVS(strcmp(AAVS.phase, 'hold6') | strcmp(AAVS.phase, 'washout') | strcmp(AAVS.phase, 'retention'),:);
@@ -172,6 +171,7 @@ if bStat
     groupsummary(sen_second, {'cond','phase'}, {'mean','std'}, {'aavsNormWithinSession'})
         
     % ----- AAVS Norm First Session -----
+    fprintf('\n*** Sentence, AAVS Norm First Session ***\n');
     
     [p,t,stats] = anovan(sen.aavsNormFirstSession, {sen.cond sen.phase sen.adaptFirst sen.subj}, ...
                         'model', 'full', 'random', 4, 'nested', [0 0 0 0; 0 0 0 0; 0 0 0 0; 0 0 1 0], 'varnames', {'cond','phase','adaptFirst','subj'});    
@@ -181,6 +181,7 @@ if bStat
     %%%%%%%%%%
     
     % ----- AVS Transfer Norm Within Session -----
+    fprintf('\n*** Transfer, AVS Norm Within Session ***\n');
     
     tra = AVS_VSA(strcmp(AVS_VSA.phase, 'transfer3'),:); % select phase of interest
     [p,t,stats] = anovan(tra.avsNormWithinSession, {tra.cond tra.adaptFirst tra.subj}, ...
@@ -198,13 +199,15 @@ if bStat
     groupsummary(tra, {'cond'}, {'mean','std'}, {'avsNormWithinSession'})
     
     % ----- VSA Transfer Norm Within Session -----
-    
+    fprintf('\n*** Transfer, VSA Norm Within Session ***\n');
+
     [p,t,stats] = anovan(tra.vsa4NormWithinSession, {tra.cond tra.adaptFirst tra.subj}, ...
                         'model', 'full', 'random', 3, 'nested', [0 0 0; 0 0 0; 0 1 0], 'varnames', {'cond','adaptFirst','subj'});
     
     groupsummary(tra, {'cond'}, {'mean','std'}, {'vsa4NormWithinSession'})
     
     % ----- AVS Transfer Norm First Session -----
+    fprintf('\n*** Transfer, AVS Norm First Session ***\n');
     
     [p,t,stats] = anovan(tra.avsNormFirstSession, {tra.cond tra.adaptFirst tra.subj}, ...
                         'model', 'full', 'random', 3, 'nested', [0 0 0; 0 0 0; 0 1 0], 'varnames', {'cond','adaptFirst','subj'});
@@ -212,6 +215,7 @@ if bStat
     groupsummary(tra, {'cond'}, {'mean','std'}, {'avsNormFirstSession'})
     
     % ----- VSA Transfer Norm First Session -----
+    fprintf('\n*** Transfer, VSA Norm First Session ***\n');
     
     [p,t,stats] = anovan(tra.vsa4NormFirstSession, {tra.cond tra.adaptFirst tra.subj}, ...
                         'model', 'full', 'random', 3, 'nested', [0 0 0; 0 0 0; 0 1 0], 'varnames', {'cond','adaptFirst','subj'});
@@ -229,6 +233,7 @@ if bStat
     %%%%%%%%%%
     % SENTENCE
     %%%%%%%%%%
+    fprintf('\n*** Sentence ***\n');
 
     load(fullfile(dataPath, 'sentenceVow_41.mat'), 'sentenceVow');
     sV = groupsummary(sentenceVow, ["subj","cond","phase","vow","speaker","adaptFirst"], "mean");
@@ -291,6 +296,7 @@ if bStat
     %%%%%%%%%%
     % TRANSFER
     %%%%%%%%%%
+    fprintf('\n*** Transfer ***\n');
 
     load(fullfile(dataPath, 'transferVow_41.mat'), 'transferVow');
     tV = groupsummary(transferVow, ["subj","cond","phase","vow","speaker","adaptFirst"], "mean");
@@ -338,54 +344,18 @@ if bStat
     threshold = 0.05 ./ (length(p):-1:1) % Holm-Bonferroni
     [pSort,pInd] = sort(p) % each sorted p must be less than its corresponding threshold
 
-    % -----------------------------------------------------------------------------
-    % ----- Subjectwise perturbation magnitude predicts vowelwise adaptation? -----
-    % -----------------------------------------------------------------------------
+    % ----------------------------------------------------------------------------
+    % ----- Subjectwise perturbation magnitude predicts vowelwise adaptation -----
+    % ----------------------------------------------------------------------------
+    fprintf('\n*** Subjectwise perturbation magnitude predicts vowelwise adaptation ***\n');
 
     load(fullfile(dataPath, 'sentenceVow_41.mat'), 'sentenceVow');
     sV = groupsummary(sentenceVow, ["subj","cond","phase","vow","speaker","adaptFirst"], "mean");
     sen = sV(strcmp(sV.cond, 'adapt'),:); % adapt only
     sen = sen(strcmp(sen.phase, 'hold6'),:); % select phases of interest
     sen.mean_pertsize = sen.mean_centdist/2;
-
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.adaptFirst sen.vow sen.subj}, ...
-%                         'model', 'full', 'random', 4, 'nested', [0 0 0 0; 0 0 0 0; 0 0 0 0; 0 1 0 0], 'varnames', {'centdist','adaptFirst','vow','subj'}); % out of memory
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.vow sen.subj}, 'model', 'full', 'random', 3, 'varnames', {'centdist','vow','subj'}); % out of memory
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.vow sen.subj}, 'model', 'full', 'random', [2 3], 'varnames', {'centdist','vow','subj'}); % out of memory
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.vow sen.subj}, 'model', 'full', 'random', 3, 'nested', [0 0 0; 0 0 1; 0 0 0], 'varnames', {'centdist','vow','subj'}); % out of memory
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.vow sen.subj}, 'model', 'linear', 'random', 3, 'varnames', {'centdist','vow','subj'}); % Inf
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.vow sen.subj}, 'model', 'linear', 'random', [2 3], 'varnames', {'centdist','vow','subj'}); % Inf
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.vow sen.subj}, 'model', [1 0 0; 0 0 0; 0 0 0], 'random', [2 3], 'varnames', {'centdist','vow','subj'}); % Inf
-%     [p,t,stats] = anovan(sen.mean_centdistdiff, {sen.mean_centdist sen.subj}, 'model', 'full', 'random', 2, 'varnames', {'centdist','subj'}); % NaN
-% 
-%     figure(); set(gcf, 'Color', 'w'); hold on;
-%     for i = 1:height(sen)
-%         x = sen.mean_centdist(i);
-%         y = sen.mean_centdistdiff(i);
-%         v = sen.vow{i};
-%         plot(x, y, 'Marker', 'o', 'MarkerFaceColor', vowColors.(v), 'MarkerEdgeColor', vowColors.(v), 'MarkerSize', 5);
-%         %text(x+5, y, sen.vow{i}, 'FontSize', 9, 'Color', adaptColor);
-%     end
-%     xlabel('dist. from center (mels), adaptation phase'); ylabel('\Delta dist. from center (mels), adaptation phase'); title('sentence vowels');
-%     axis square;
-%     [r,p] = corr(sen.mean_centdist, sen.mean_centdistdiff, 'type', 'Pearson')
-
-    % https://www.mathworks.com/help/stats/linearmixedmodel.predict.html
     sen.vow = nominal(sen.vow);
     sen.subj = nominal(sen.subj);
-
-    % model selection
-    m0 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize')
-    m1 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (1|subj)')
-    m2 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (1|subj) + (1|vow)')
-    m3 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (-1+mean_pertsize|subj) + (1|subj) + (1|vow)')
-    m4 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (1|subj) + (-1+mean_pertsize|vow) + (1|vow)')
-    m5 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (-1+mean_pertsize|subj) + (1|subj) + (-1+mean_pertsize|vow) + (1|vow)')
-    m6 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (1+mean_pertsize|subj) + (-1+mean_pertsize|vow) + (1|vow)')
-    m7 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (-1+mean_pertsize|subj) + (1|subj) + (1+mean_pertsize|vow)')
-    m8 = fitlme(sen, 'mean_centdistdiff ~ 1 + mean_pertsize + (1+mean_pertsize|subj) + (1+mean_pertsize|vow)')
-    compare(m7, m8)
-
     lme = fitlme(sen, 'mean_centdistdiff ~ mean_pertsize + (1+mean_pertsize|subj) + (1+mean_pertsize|vow)')  
     anova(lme, 'DFMethod', 'Satterthwaite')
 
@@ -542,7 +512,7 @@ if bStat
     end
 
     % ----- Stop-Consonant Durations -----
-    fprintf('\n*** sentence durations, normWithinSession, stop-consonant segments only ***\n');
+    fprintf('\n*** Sentence durations, Norm Within Session, Stop-consonant segments only ***\n');
     clear sen p t stats es;
     load(fullfile(dataPath, 'segmentDuration_sentence_41.mat'), 'sen');
     stops = {'B','D','G','P','T','K'};
@@ -565,6 +535,7 @@ if bStat
     %%%%%%%%%%
     % SENTENCE
     %%%%%%%%%%
+    fprintf('Sentence');
 
     % select second sessions (where we have perceptual data)
     for s = 1:height(T)
@@ -625,7 +596,9 @@ if bStat
     [r,p] = corr(aavs_gain, wrd_gain, 'type', 'Pearson'); 
     fprintf('aavs_gain ~ wrd_gain: r = %4f, p = %4f \n', r, p);
 
-    % --- excluding n=3 who reported using pronunciation strategies ---
+    % --- Excluding n=3 who reported using pronunciation strategies ---
+    fprintf('\n*** Excluding n=3 who reported using pronunciation strategies *** \n');
+
     T_ = T;
     T_(T_.subj==15,:) = [];
     T_(T_.subj==17,:) = [];
@@ -681,6 +654,7 @@ if bStat
     %%%%%%%%%%
     % TRANSFER
     %%%%%%%%%%
+    fprintf('Transfer');
 
     clear wrd_base wrd_gain;
     for s = 1:height(T)
@@ -787,11 +761,12 @@ if bStat
 end
 
 
-%% Not a Figure: Perturbation awareness and strategy use
+%% Tables S1, S2, S3, S4: Perturbation awareness and strategy use
 
 [bStat,~] = ismember(7,figs2stat);
 if bStat
 
+    fprintf('\n*** Without the n=5 aware/strategic participants ***\n');
     toExcl = [7 15 17 34 41]; % 'sp301','sp343','sp347','sp443','sp601'
 
     % ----- AVS Norm Within Session -----
