@@ -677,54 +677,26 @@ if bStat
     end
     avs_base = avs_base'; avs_gain_norm = avs_gain_norm'; avs_gain_raw = avs_gain_raw'; age = age'; male = male';
 
-    [r,p] = corr(age, avs_base, 'type', 'Pearson'); % S
-    fprintf('age ~ avs_base: r = %4f, p = %4f \n', r, p);
+    % ----- Baseline Vowel Space (Raw) -----
+    fprintf('\n*** Baseline Vowel Space (Raw) ***\n');
 
-    [~,p,~,stats] = ttest2(avs_base(male==1), avs_base(male==0)); % S
-    es = meanEffectSize(avs_base(male==1), avs_base(male==0), Effect="cohen");
-    fprintf('avs_base by male: t = %4f, df = %4f, p = %4f, d = %4f \n', stats.tstat, stats.df, p, es.Effect(1));
-
-    [r,p] = corr(avs_base, avs_gain_norm, 'type', 'Pearson'); % S
-    fprintf('avs_base ~ avs_gain_norm: r = %4f, p = %4f \n', r, p);
-    [r,p] = corr(avs_base, avs_gain_raw, 'type', 'Pearson'); % S
-    fprintf('avs_base ~ avs_gain_raw: r = %4f, p = %4f \n', r, p);
-
-    [r,p] = corr(age, avs_gain_norm, 'type', 'Pearson'); % NS
-    fprintf('age ~ avs_gain_norm: r = %4f, p = %4f \n', r, p);
-    [r,p] = corr(age, avs_gain_raw, 'type', 'Pearson'); % NS
-    fprintf('age ~ avs_gain_raw: r = %4f, p = %4f \n', r, p);
-
-    [~,p,~,stats] = ttest2(avs_gain_norm(male==1), avs_gain_norm(male==0)); % NS
-    [~,p,~,stats] = ttest2(avs_gain_raw(male==1), avs_gain_raw(male==0));   % NS
-
-%     m0 = stepwiselm([age male], avs_base, 'constant', 'VarNames', {'age','male','avs_base'}, 'CategoricalVar', 2, 'Verbose', 2) %#ok<*NASGU,*NOPRT> 
-%     anova(m0)
-%     m1 = stepwiselm([age male], avs_base, 'linear', 'VarNames', {'age','male','avs_base'}, 'CategoricalVar', 2, 'Verbose', 2) %#ok<*NASGU,*NOPRT> 
-%     anova(m1)
-%     m2 = stepwiselm([age male], avs_base, 'interactions', 'VarNames', {'age','male','avs_base'}, 'CategoricalVar', 2, 'Verbose', 2) %#ok<*NASGU,*NOPRT> 
-%     anova(m2)
-%     m3 = stepwiselm([age male avs_base], avs_gain_norm, 'constant', 'VarNames', {'age','male','avs_base','avs_gain_norm'}, 'CategoricalVar', 2, 'Verbose', 2) %#ok<*NASGU,*NOPRT> 
-%     anova(m3)
-%     m4 = stepwiselm([age male avs_base], avs_gain_norm, 'linear', 'VarNames', {'age','male','avs_base','avs_gain_norm'}, 'CategoricalVar', 2, 'Verbose', 2) %#ok<*NASGU,*NOPRT> 
-%     anova(m4)
-%     m5 = stepwiselm([age male avs_base], avs_gain_norm, 'interactions', 'VarNames', {'age','male','avs_base','avs_gain_norm'}, 'CategoricalVar', 2, 'Verbose', 2) %#ok<*NASGU,*NOPRT> 
-%     anova(m5)
-%     m6 = stepwiselm([age male avs_base], avs_gain_raw, 'interactions', 'VarNames', {'age','male','avs_base','avs_gain_raw'}, 'CategoricalVar', 2, 'Verbose', 2)  
-%     anova(m6)
-
-    % https://math.stackexchange.com/questions/617735/multiple-regression-degrees-of-freedom-f-test#:~:text=The%20correct%20approach%20is%20to,freedom%2C%20i.e.%20n%E2%88%921.
-
-    % 7-26-24
     T_starting = [0 0 0]; % constant
-    T_upper = [0 0 0;1 0 0;0 1 0;1 1 0]; % a linear model with interactions
-    mdl = stepwiselm([age male], avs_base, T_starting, 'upper', T_upper, ...
-        'VarNames', {'age','male','avs_base'}, 'CategoricalVar', 2, 'Verbose',2)
+
+    T_upper = [0 0 0; 1 0 0; 0 1 0; 1 1 0]; % a linear model with interactions
+
+    mdl = stepwiselm([age male], avs_base, T_starting, 'upper', T_upper, 'VarNames', {'age','male','avs_base'}, 'CategoricalVar', 2, 'Verbose', 2)
+
+    % ----- Gain in Vowel Space (Norm) -----
+    fprintf('\n*** Gain in Vowel Space (Norm) ***\n');
 
     T_upper = [0 0 0 0; 1 0 0 0; 0 1 0 0; 0 0 1 0; 1 1 0 0; 1 0 1 0; 0 1 1 0; 1 1 1 0];
-    mdl = stepwiselm([age male avs_base], avs_gain_norm, T_starting, 'upper', T_upper, ...
-        'VarNames', {'age','male','avs_base','avs_gain_norm'}, 'CategoricalVar', 2, 'Verbose',2)
-    mdl = stepwiselm([age male avs_base], avs_gain_raw, T_starting, 'upper', T_upper, ...
-        'VarNames', {'age','male','avs_base','avs_gain_raw'}, 'CategoricalVar', 2, 'Verbose',2)
+
+    mdl = stepwiselm([age male avs_base], avs_gain_norm, T_starting, 'upper', T_upper, 'VarNames', {'age','male','avs_base','avs_gain_norm'}, 'CategoricalVar', 2, 'Verbose', 2)
+    
+    % ----- Gain in Vowel Space (Raw) -----
+    fprintf('\n*** Gain in Vowel Space (Raw) ***\n');
+
+    mdl = stepwiselm([age male avs_base], avs_gain_raw, T_starting, 'upper', T_upper, 'VarNames', {'age','male','avs_base','avs_gain_raw'}, 'CategoricalVar', 2, 'Verbose', 2)
 
 end
 
