@@ -2,9 +2,9 @@ function stats_vsaSentencePaperFigs(figs2stat)
 %STATS_VSASENTENCEPAPERFIGS Statistics for each figure in the vsaSentence paper. 
 
 % 0 = (Not a figure) Participant demographics
-% 1 = Fig 1: Experiment
+% 1 = (Not a figure) Experiment: Tokens per sentence vowel
 % 2 = Fig 2: AVS (and VSA and AAVS)
-% 3 = Fig 3: Vowel-specific distances
+% 3 = Fig 3: Vowel-specific analyses
 % 4 = Fig 4: Clear speech
 % 5 = Fig 5: Intelligibility
 % 6 = (Not a figure) Predictors of adaptation
@@ -40,12 +40,11 @@ if bStat
 end
 
 
-%% Fig 1: Experiment and metrics
+%% Fig 1: Experiment: Tokens per sentence vowel
 
 [bStat,~] = ismember(1,figs2stat);
 if bStat
     
-    % tokens per sentence vowel
     load(fullfile(dataPath, 'sentenceVow_41.mat'), 'sentenceVow');
     nVow = groupcounts(sentenceVow, ["subj", "cond", "phase", "vow"]);
     nVow.subj  = nominal(nVow.subj);
@@ -225,7 +224,7 @@ if bStat
 end
 
 
-%% Fig 3: Vowel-specifc
+%% Fig 3: Vowel-specific analyses
 
 [bStat,~] = ismember(3,figs2stat);
 if bStat
@@ -356,48 +355,17 @@ if bStat
     sen.mean_pertsize = sen.mean_centdist/2;
     sen.vow = nominal(sen.vow);
     sen.subj = nominal(sen.subj);
-    lme = fitlme(sen, 'mean_centdistdiff ~ mean_pertsize + (1+mean_pertsize|subj) + (1+mean_pertsize|vow)')  
+
+    lme = fitlme(sen, 'mean_centdistdiff ~ mean_pertsize + (1+mean_pertsize|subj) + (1+mean_pertsize|vow)')  %#ok<*NOPRT> 
     anova(lme, 'DFMethod', 'Satterthwaite')
 
-    % new data for prediction
-    new = table();
-    new.mean_pertsize = linspace(0,250,100)';
-    new.subj = repmat(70,100,1);
-    new.vow = repmat(70,100,1);
-    new.vow = nominal(new.vow);
-    new.subj = nominal(new.subj);
-
-    figure(); set(gcf, 'Color', 'w'); hold on;
-
-    [ypred, yCI, DF] = predict(lme, new, 'Conditional', true, 'DFMethod', 'Satterthwaite');
-    h1 = line(new.mean_pertsize, ypred);
-    h1.Color = 'k'; h1.LineWidth = 2;
-    inBetween = [yCI(:,2)', fliplr(yCI(:,1)')];
-    x3 = [linspace(0,250,100), fliplr(linspace(0,250,100))];
-    patch(x3, inBetween, 1, 'FaceColor', [0.5 0.5 0.5], 'EdgeColor', 'none');
-    alpha(0.3);
-    xlabel('mean perturbation (mels)'); ylabel('\Delta dist. from center (mels)');
-    r2 = round(lme.Rsquared.Ordinary, 2);
-    text(350, -35, ['R^{2} = ' num2str(r2)], 'FontSize', 16);
-        
-    rGradient = interp1(1:size(ColorSet,1), ColorSet(:,1), linspace(1,size(ColorSet,1),100));  
-    gGradient = interp1(1:size(ColorSet,1), ColorSet(:,2), linspace(1,size(ColorSet,1),100));
-    bGradient = interp1(1:size(ColorSet,1), ColorSet(:,3), linspace(1,size(ColorSet,1),100));
-        
-    figure(); % works
-    x = new.mean_pertsize';
-    y = ypred';
-    z = y;
-    patch([x nan], [y nan], [z nan], [z nan], 'EdgeColor', 'interp', 'LineWidth', 2);
-    adaptGradient = [rGradient' gGradient' bGradient'];
-    colormap(adaptGradient);
-    
-    figure(); % works
-    x = new.mean_pertsize';
-    y = ypred';
-    z = zeros(size(x));
-    adaptGradient = cat(3, rGradient, gGradient, bGradient);
-    surface([x;x], [y;y], [z;z], [adaptGradient;adaptGradient], 'FaceColor', 'no', 'EdgeColor', 'interp', 'LineWidth', 2);
+    tblnew = table(); % new data for prediction
+    tblnew.mean_pertsize = linspace(0,250,100)';
+    tblnew.subj = repmat(70,100,1);
+    tblnew.vow = repmat(70,100,1);
+    tblnew.vow = nominal(tblnew.vow);
+    tblnew.subj = nominal(tblnew.subj);
+    [ypred, yCI, DF] = predict(lme, tblnew, 'Conditional', true, 'DFMethod', 'Satterthwaite');
 
 end
 
